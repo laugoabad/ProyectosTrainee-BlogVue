@@ -21,22 +21,22 @@
     <div id="app">
         <div class="container">
             <header class="header">{{tituloBlog}}</header>
-            <section >
+            <section>
                 <ul class="row d-flex justify-content-center">
                     <li v-for="nota of notas" class="card col-11 col-md-6 col-lg-4 col-xl-3">
-                <article>
-                    <div class="row autor">
-                        <img src="./imgs/images.jpg" alt="foto" class="foto col-1 img-responsive">
-                        <h6 class="nombre-small col-8">{{nota.autor}}</h6>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">{{nota.titulo}}</h5>
-                        <p class="card-text collapse">{{nota.texto}}</p>
-                        <a v-bind:href="nota.hrefer" class="collapsed"></a>
-                    </div>
-                </article>
-                </li>
-            </ul>
+                        <article>
+                            <div class="row autor">
+                                <img src="./imgs/images.jpg" alt="foto" class="foto col-1 img-responsive">
+                                <h6 class="nombre-small col-8">{{nota.autor}}</h6>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{nota.titulo}}</h5>
+                                <p class="card-text collapse">{{nota.texto}}</p>
+                                <a v-bind:href="nota.hrefer" class="collapsed"></a>
+                            </div>
+                        </article>
+                    </li>
+                </ul>
             </section>
         </div>
     </div>

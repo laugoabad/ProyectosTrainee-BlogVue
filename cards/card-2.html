@@ -2,90 +2,53 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="ie.edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
+
+    <!-- Load polyfills to support older browsers -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver"></script>
+
+    <!-- Required scripts -->
+    <script src="https://unpkg.com/vue@latest/dist/vue.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/estilos.css">
 </head>
 
 <body>
-    <div class="container">
-        <section class="row d-flex justify-content-center mt-5">
-            <article class="card col-11 ">
-                <div class="row autor">
-                    <img src="../imgs/images.jpg" alt="foto" class="foto col-1 img-responsive">
-                    <h6 class="nombre-big col-8">Laura Gonzalez</h6>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">TITULO</h5>
-
-                    <p class="card-text">
-                        2-Lorem ipsum dolor sit amet consectetur adipiscing elit vel ridiculus justo, vulputate consequat
-                        eget pulvinar euismod
-                        natoque praesent dapibus cubilia placerat integer, tempus magna ad accumsan eros risus etiam
-                        vestibulum facilisi.
-                        Curabitur maecenas habitant nascetur venenatis class convallis feugiat odio euismod, nec
-                        ullamcorper faucibus
-                        sollicitudin nisl a suscipit pellentesque dui, platea torquent congue per libero felis donec
-                        aptent. Conubia litora
-                        ligula velit facilisis maecenas mauris sed in eros consequat viverra justo eu orci, leo ante
-                        vestibulum netus varius mus
-                        hendrerit purus pretium nullam sociis pellentesque gravida.
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <h6 class="text-mute">Comentarios</h6>
-                    <a data-toggle="collapse" href="#collapseComentarios" role="button" class="collapsed"></a>
-                    <div class="collapsed" id="collapseComentarios">
-                        <div class="card">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    Lorem ipsum dolor sit amet consectetur adipiscing elit vel ridiculus justo,
-                                    vulputate consequat
-                                    eget pulvinar euismod
-                                    natoque praesent dapibus cubilia placerat integer, tempus magna ad accumsan
-                                    eros
-                                    risus etiam
-                                    vestibulum facilisi.
-                                </p>
-                            </div>
-                            <div class="card-footter text-muted pl-5">
-                                Laura Gonzalez el 29/08/2019
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    Lorem ipsum dolor sit amet consectetur adipiscing elit vel ridiculus justo,
-                                    vulputate consequat
-                                    eget pulvinar euismod
-                                    natoque praesent dapibus cubilia placerat integer, tempus magna ad accumsan
-                                    eros
-                                    risus etiam
-                                    vestibulum facilisi.
-                                </p>
-                            </div>
-                            <div class="card-footter text-muted pl-5">
-                                Laura Gonzalez el 29/08/2019
-                            </div>
-                        </div>
+    <div id="app">
+        <div class="container">
+            <section class="row d-flex justify-content-center mt-5">
+                <article class="card col-11 ">
+                    <div class="row autor">
+                        <img src="../imgs/images.jpg" alt="foto" class="foto col-1 img-responsive">
+                        <h6 class="nombre-big col-8">{{notas[1].autor}}</h6>
                     </div>
-
-                </div>
-            </article>
-        </section>
+                    <div class="card-body">
+                        <h5 class="card-title">{{notas[1].titulo}}</h5>
+                        <p class="card-text"> {{notas[1].texto}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <h6 class="text-mute">Comentarios</h6>
+                        <ul>
+                            <li v-for="comentario of notas[1].comentarios">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p class="card-text">{{comentario.textoComentario}}</p>
+                                    </div>
+                                    <div class="card-footter text-muted pl-5">{{comentario.autor}}</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+        </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="../js/blog.js"></script>
 </body>
 
 </html>
